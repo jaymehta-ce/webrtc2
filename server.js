@@ -30,8 +30,8 @@ app.set('port', port);
  * Create HTTP server.
  */
 
-var sslSrv = http.createServer(app);// signaling
-server.listen(port);
+var sslSrv = https.createServer(options, app);// signaling
+sslSrv.listen(port);
 
 console.log("The HTTPS server is up and running");
 
