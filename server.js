@@ -21,7 +21,18 @@ app.use(function(req, res, next) {
 });
 
 // start server (listen on port 443 - SSL)
-sslSrv = https.createServer(options, app).listen(443);
+//sslSrv = https.createServer(options, app).listen(443);
+
+var port = process.env.PORT;
+app.set('port', port);
+
+/**
+ * Create HTTP server.
+ */
+
+var sslSrv = http.createServer(app);// signaling
+server.listen(port);
+
 console.log("The HTTPS server is up and running");
 
 // create the WebSocket server
